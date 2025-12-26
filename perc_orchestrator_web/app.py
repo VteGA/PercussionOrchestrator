@@ -26,7 +26,7 @@ with colA:
 
 with colB:
     default_zip = "https://drive.google.com/file/d/12l3uRo7kNFd_DMuYHV2ZE2c0_LsA-2EJ/view?usp=drive_link"
-    zip_url = st.text_input("ZIP público (Drive) si falta el dataset (opcional)", value=default_zip)
+    zip_url = st.text_input("Descarga el dataset en caso de fallo", value=default_zip)
 
 @st.cache_resource(show_spinner=True)
 def get_engine(project_root: str, zip_url: Optional[str]):
