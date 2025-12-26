@@ -213,6 +213,7 @@ gain_map = {
 }
 
 # ------------------ Run + Historial ------------------
+st.markdown("---")
 st.subheader("4) Ejecutar")
 
 if "history" not in st.session_state:
