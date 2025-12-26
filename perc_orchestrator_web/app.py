@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.image("assets/wordmark.png", width="content")
+st.image("assets/PO_logo.png", width="content")
 
 # ------------------ Ayuda (simple) ------------------
 with st.expander("Ayuda (qué hace cada parámetro)", expanded=False):
