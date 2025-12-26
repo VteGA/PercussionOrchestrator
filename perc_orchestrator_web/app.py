@@ -17,7 +17,7 @@ with mid:
     st.image("perc_orchestrator_web/assets/PO_logo.png", width="stretch")
 
 # ------------------ Config dataset ------------------
-st.subheader("1) Dataset")
+st.subheader("1- Dataset")
 
 colA, colB = st.columns([2, 3])
 
@@ -46,7 +46,7 @@ except Exception as e:
     st.stop()
 
 # ------------------ Entrada ------------------
-st.subheader("2) Audio de entrada")
+st.subheader("2- Audio de entrada")
 
 uploaded = st.file_uploader("Sube un audio (wav/mp3/flac/ogg)", type=["wav", "mp3", "flac", "ogg"])
 
@@ -79,7 +79,7 @@ if input_path is None:
     st.stop()
 
 # ------------------ Parámetros ------------------
-st.subheader("3) Parámetros")
+st.subheader("3- Parámetros")
 
 METHOD_LABEL = {
     "weighted": "Solo por sonido (rápido)",
