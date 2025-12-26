@@ -37,7 +37,7 @@ def get_engine(project_root: str, zip_url: Optional[str]):
 
 try:
     engine = get_engine(project_root, zip_url)
-    col1, col2 = st.columns(2) 
+    col1, col2 = st.columns([2, 3]) 
 
     with col1:
         st.caption(f"Audio dir: {engine.paths.AUDIO_DIR}")
