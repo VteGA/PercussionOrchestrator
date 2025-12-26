@@ -46,7 +46,7 @@ except Exception as e:
     st.stop()
 
 # ------------------ Entrada ------------------
-st.markdown("---")  # separador visual
+st.markdown("---")
 st.subheader("2- Audio de entrada")
 
 uploaded = st.file_uploader("Sube un audio (wav/mp3/flac/ogg)", type=["wav", "mp3", "flac", "ogg"])
@@ -80,6 +80,7 @@ if input_path is None:
     st.stop()
 
 # ------------------ Parámetros ------------------
+st.markdown("---")
 st.subheader("3- Parámetros")
 
 METHOD_LABEL = {
