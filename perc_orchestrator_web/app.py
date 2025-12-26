@@ -126,34 +126,31 @@ LAYER_LABEL = {
     "special_fx": "FX / Especial",
 }
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
-# ----- Columna 1: principales + (debajo) ajustes extra -----
 with col1:
-    # Principales
     method = st.selectbox(
         "Modo de selección",
         ["weighted", "hybrid", "hybrid_quota", "combined"],
         index=2,
         format_func=lambda k: METHOD_LABEL[k],
-        help="Define si la app decide solo por el sonido o también usando información del dataset.",
+        help="Define si la app decide solo por el sonido o también usando información del dataset (material, registro, rol, etc.).",
     )
 
     n_return = st.slider(
         "Opciones a combinar",
         5, 60, 20, 1,
-        help="Más alto = mezcla más elementos; más bajo = resultado más directo.",
+        help="Cuántos elementos mezcla para formar el resultado. Más alto = más mezcla; más bajo = más directo.",
     )
 
     K = st.slider(
         "Variedad (candidatos que explora)",
         30, 400, 200, 10,
-        help="Más alto = explora más alternativas (más diverso, algo más lento).",
+        help="Cuanto más alto, más alternativas explora antes de decidir (más diverso, algo más lento).",
     )
 
-    st.markdown("---")  # separador visual (puedes quitarlo si no lo quieres)
-
-    # Debajo (lo que antes estaba en la columna central)
+with col2:
+    # Solo tiene sentido en modos hybrid/hybrid_quota
     if method in ("hybrid", "hybrid_quota"):
         lambda_meta = st.slider(
             "Parecido al audio (perfil)",
@@ -163,11 +160,12 @@ with col1:
     else:
         lambda_meta = 0.0
 
+    # Solo tiene sentido en modo combined
     if method == "combined":
         beta = st.slider(
             "Peso de las etiquetas del dataset",
             0.0, 2.0, 0.6, 0.05,
-            help="Sube esto si quieres que la info del dataset mande más que el sonido.",
+            help="Sube esto si quieres que la info del dataset (material, registro, rol…) mande más que el sonido.",
         )
     else:
         beta = 0.0
@@ -175,11 +173,10 @@ with col1:
     do_crop = st.checkbox(
         "Recortar al largo del audio",
         True,
-        help="Ajusta la salida a la duración del audio que has subido.",
+        help="Si está activado, la salida se ajusta a la duración del audio que has subido.",
     )
 
-# ----- Columna 2: alineación/offsets -----
-with col2:
+with col3:
     use_offsets = st.checkbox(
         "Alinear automáticamente",
         True,
@@ -192,18 +189,21 @@ with col2:
         index=0,
         format_func=lambda k: OFFSETS_LABEL[k],
         disabled=not use_offsets,
+        help="Envolvente = más estable. Pico = se fija en el golpe más fuerte.",
     )
 
     env_dur = st.slider(
         "Ventana de análisis (s)",
         0.5, 8.0, 3.0, 0.5,
         disabled=not use_offsets,
+        help="Cuánto audio usa para comparar. Más alto = más contexto.",
     )
 
     max_shift = st.slider(
         "Desplazamiento máximo (s)",
         0.0, 3.0, 0.8, 0.1,
         disabled=not use_offsets,
+        help="Hasta cuánto puede 'mover' el audio internamente para alinearlo.",
     )
 
 # --- Cuotas (solo hybrid_quota) ---
@@ -215,6 +215,7 @@ if method == "hybrid_quota":
         q_noise  = st.slider(LAYER_LABEL["noise_layer"], 0, 6, 1, 1)
         q_fx     = st.slider(LAYER_LABEL["special_fx"], 0, 6, 1, 1)
 else:
+    # Valores por defecto si no aplica
     q_attack, q_body, q_res, q_noise, q_fx = 2, 2, 2, 1, 1
 
 # --- Ganancias ---
