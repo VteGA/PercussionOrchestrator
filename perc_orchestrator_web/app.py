@@ -7,8 +7,12 @@ import pandas as pd
 
 from core.engine import PercussionOrchestratorEngine
 
-st.set_page_config(page_title="Percussion Orchestrator", layout="wide")
-st.image("assets/PO_logo.png")
+st.set_page_config(
+    page_title="Percussion Orchestrator",
+    layout="wide",
+)
+
+st.image("assets/wordmark.png", width="content")
 
 # ------------------ Ayuda (simple) ------------------
 with st.expander("Ayuda (qué hace cada parámetro)", expanded=False):
