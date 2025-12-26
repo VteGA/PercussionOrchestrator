@@ -46,6 +46,7 @@ except Exception as e:
     st.stop()
 
 # ------------------ Entrada ------------------
+st.markdown("---")  # separador visual
 st.subheader("2- Audio de entrada")
 
 uploaded = st.file_uploader("Sube un audio (wav/mp3/flac/ogg)", type=["wav", "mp3", "flac", "ogg"])
