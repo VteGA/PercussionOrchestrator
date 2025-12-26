@@ -16,31 +16,6 @@ left, mid, right = st.columns([1, 2, 1])
 with mid:
     st.image("perc_orchestrator_web/assets/PO_logo.png", width="stretch")
 
-# ------------------ Ayuda (simple) ------------------
-with st.expander("Ayuda (qué significa cada ajuste)", expanded=False):
-    st.markdown("""
-- **Modo de selección**
-  - **Solo por el sonido**: decide principalmente por cómo suena el audio.
-  - **Sonido + “etiquetas”**: además del sonido, tiene en cuenta información del dataset (material, registro, rol…).
-  - **Sonido + etiquetas con equilibrio**: como el anterior, pero intenta repartir mejor los roles (para que no salga “todo lo mismo”).
-  - **Mezcla total**: mezcla sonido y etiquetas de forma continua (tú decides cuánto pesa cada cosa).
-- **Cuántas opciones combinar**
-  - Cuantas más combines, más “mezcla” hace. Si pones pocas, el resultado suele ser más directo.
-- **Variedad**
-  - Cuanta más variedad, más alternativas explora antes de decidir. Suele dar resultados más diversos, pero tarda un poco más.
-- **Respetar el perfil del audio**
-  - Sube esto si quieres que el resultado se parezca más al “tipo” de audio que has subido. (Solo en algunos modos.)
-- **Peso de la información extra**
-  - Sube esto si quieres que las “etiquetas” del dataset (material, registro, rol…) manden más que el sonido. (Solo en algunos modos.)
-- **Alineación**
-  - **Por envolvente**: compara cómo evoluciona la energía del sonido (más estable).
-  - **Por pico**: se fija en el golpe más fuerte (más directo).
-- **Duración del análisis**
-  - El trocito de audio que usa para comparar (en segundos). Más largo = más contexto.
-- **Desplazamiento máximo**
-  - Hasta cuánto puede “mover” internamente el audio para alinearlo (en segundos).
-""")
-
 # ------------------ Config dataset ------------------
 st.subheader("1) Dataset")
 
