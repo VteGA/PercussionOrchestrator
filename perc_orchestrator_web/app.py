@@ -12,7 +12,9 @@ st.set_page_config(
     layout="wide",
 )
 
-st.image("perc_orchestrator_web/assets/PO_logo.png", width="content")
+left, mid, right = st.columns([1, 2, 1])
+with mid:
+st.image("perc_orchestrator_web/assets/PO_logo.png", width="stretch")
 
 # ------------------ Ayuda (simple) ------------------
 with st.expander("Ayuda (qué hace cada parámetro)", expanded=False):
