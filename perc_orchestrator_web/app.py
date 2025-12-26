@@ -52,7 +52,7 @@ st.subheader("2- Audio de entrada")
 uploaded = st.file_uploader("Sube un audio (wav/mp3/flac/ogg)", type=["wav", "mp3", "flac", "ogg"])
 
 test_files = engine.list_test_sounds()
-use_test = st.checkbox("Usar un sonido de prueba del dataset (en vez de subir un archivo)", value=False)
+use_test = st.checkbox("Usar un sonido de prueba del dataset", value=False)
 
 picked_test = None
 if use_test:
