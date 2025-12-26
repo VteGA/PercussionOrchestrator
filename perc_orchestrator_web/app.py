@@ -52,14 +52,14 @@ st.subheader("2- Audio de entrada")
 uploaded = st.file_uploader("Sube un audio (wav/mp3/flac/ogg)", type=["wav", "mp3", "flac", "ogg"])
 
 test_files = engine.list_test_sounds()
-use_test = st.checkbox("Usar un test sound del dataset (en vez de subir archivo)", value=False)
+use_test = st.checkbox("Usar un sonido de prueba del dataset (en vez de subir archivo)", value=False)
 
 picked_test = None
 if use_test:
     if not test_files:
         st.warning("No hay carpeta test_sounds/ o está vacía.")
     else:
-        picked_test = st.selectbox("Test sound", test_files)
+        picked_test = st.selectbox("Elige un sonido", test_files)
 
 # Resolver input_path
 input_path = None
@@ -76,7 +76,7 @@ elif uploaded is not None:
     input_label = uploaded.name
 
 if input_path is None:
-    st.info("Sube un audio o elige un test sound.")
+    st.info("Sube un audio o elige un sonido de prueba.")
     st.stop()
 
 # ------------------ Parámetros ------------------
@@ -214,7 +214,7 @@ gain_map = {
 
 # ------------------ Run + Historial ------------------
 st.markdown("---")
-st.subheader("4- Procesar")
+st.subheader("4- Proceso")
 
 if "history" not in st.session_state:
     st.session_state.history = []
