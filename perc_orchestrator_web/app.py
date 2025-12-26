@@ -38,8 +38,15 @@ def get_engine(project_root: str, zip_url: Optional[str]):
 try:
     engine = get_engine(project_root, zip_url)
     st.success("✅ Dataset listo")
-    st.caption(f"Audio dir: {engine.paths.AUDIO_DIR}")
-    st.caption(f"CSV: {engine.paths.CSV_PATH} (sep: {engine.csv_sep})")
+    
+    col1, col2 = st.columns(2) 
+
+    with col1:
+        st.caption(f"Audio dir: {engine.paths.AUDIO_DIR}")
+
+    with col2:
+        st.caption(f"CSV: {engine.paths.CSV_PATH} (sep: {engine.csv_sep})")
+
 except Exception as e:
     st.error("No se pudo preparar el dataset.")
     st.code(str(e))
