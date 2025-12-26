@@ -37,8 +37,6 @@ def get_engine(project_root: str, zip_url: Optional[str]):
 
 try:
     engine = get_engine(project_root, zip_url)
-    st.success("✅ Dataset listo")
-    
     col1, col2 = st.columns(2) 
 
     with col1:
@@ -47,10 +45,12 @@ try:
     with col2:
         st.caption(f"CSV: {engine.paths.CSV_PATH} (sep: {engine.csv_sep})")
 
+    st.success("✅ Dataset listo")
+
 except Exception as e:
-    st.error("No se pudo preparar el dataset.")
     st.code(str(e))
     st.stop()
+    st.error("No se pudo preparar el dataset.")
 
 # ------------------ Entrada ------------------
 st.markdown("---")
