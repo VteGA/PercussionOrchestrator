@@ -214,12 +214,12 @@ gain_map = {
 
 # ------------------ Run + Historial ------------------
 st.markdown("---")
-st.subheader("4) Ejecutar")
+st.subheader("4- Procesar")
 
 if "history" not in st.session_state:
     st.session_state.history = []
 
-run = st.button("▶ Run", type="primary")
+run = st.button("▶ Ejecutar", type="primary")
 
 if run:
     with st.spinner("Procesando..."):
@@ -257,7 +257,7 @@ if run:
 
 # Mostrar historial (último por defecto)
 if st.session_state.history:
-    st.subheader("Resultados (último run)")
+    st.subheader("Resultados (última ejecución)")
     item = st.session_state.history[-1]
 
     a, b = st.columns(2)
@@ -282,7 +282,7 @@ if st.session_state.history:
         mime="audio/wav"
     )
 
-    with st.expander("Historial (runs anteriores)", expanded=False):
+    with st.expander("Historial (ejecuciones anteriores)", expanded=False):
         for i, it in enumerate(reversed(st.session_state.history), start=1):
             st.write(f"{i}. {it['label']} — {it['method']} — {os.path.basename(it['out_path'])}")
 
