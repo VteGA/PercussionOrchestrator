@@ -24,7 +24,7 @@ with st.expander("Ayuda (qué hace cada parámetro)", expanded=False):
   - **hybrid**: weighted + penalización de *metadata* (material, pitch_region, etc.).
   - **hybrid_quota**: hybrid pero obligando cuotas por `orchestration_role`.
   - **combined**: mezcla audio+metadata en un vector (beta controla cuánto pesa la metadata).
-
+  ""
 - **n_return**: cuántos devuelves y mezclas.
 - **K**: cuántos candidatos miras (más K = más variedad, pero más lento).
 - **lambda_meta**: cuánto penaliza el no parecerse a tu “perfil” inferido (solo hybrid).
