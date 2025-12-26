@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
-left, mid, right = st.columns([1, 2, 1])
+left, mid, right = st.columns([1, 3, 1])
 with mid:
     st.image("perc_orchestrator_web/assets/PO_logo.png", width="stretch")
 
