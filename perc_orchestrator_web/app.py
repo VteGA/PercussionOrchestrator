@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.image("assets/PO_logo.png", width="content")
+st.image("perc_orchestrator_web/assets/PO_logo.png", width="content")
 
 # ------------------ Ayuda (simple) ------------------
 with st.expander("Ayuda (qué hace cada parámetro)", expanded=False):
